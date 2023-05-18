@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Note } from "../notes.interfaces";
 
 async function getNote(noteId: string) {
@@ -21,6 +22,7 @@ export default async function NotePage({ params }: { params: { id: string } }) {
         <h5>{note.content}</h5>
         <p>{note.created}</p>
       </div>
+      <Link href={"/notes"}>Back to notes</Link>
     </div>
   );
 }

@@ -35,6 +35,7 @@ export default async function NotesPage() {
         ))}
       </div>
       <CreateNote />
+      <Link href="/">Home</Link>
     </div>
   );
 }
