@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PocketBase from "pocketbase";
 import CreateNote from "./createNote";
+import { Note } from "./notes.interfaces";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -19,7 +20,7 @@ async function getNotes() {
   // );
   // const data = await res.json();
 
-  return data as any[];
+  return data as unknown as Note[];
 }
 
 export default async function NotesPage() {
@@ -29,8 +30,8 @@ export default async function NotesPage() {
     <div>
       <h1>Notes</h1>
       <div>
-        {notes.map((el) => (
-          <Note key={el.id} note={el} />
+        {notes.map((note) => (
+          <Note key={note.id} note={note} />
         ))}
       </div>
       <CreateNote />
@@ -38,7 +39,7 @@ export default async function NotesPage() {
   );
 }
 
-function Note({ note }: any) {
+function Note({ note }: { note: Note }) {
   const { id, title, content, created } = note || {};
 
   return (

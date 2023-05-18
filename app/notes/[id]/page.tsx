@@ -1,3 +1,5 @@
+import { Note } from "../notes.interfaces";
+
 async function getNote(noteId: string) {
   // can be fetched here like this because this is a dynamic route and it is not cached
   const res = await fetch(
@@ -5,10 +7,10 @@ async function getNote(noteId: string) {
     { next: { revalidate: 10 } }
   );
   const data = await res.json();
-  return data;
+  return data as Note;
 }
 
-export default async function NotePage({ params }: any) {
+export default async function NotePage({ params }: { params: { id: string } }) {
   const note = await getNote(params.id);
 
   return (
