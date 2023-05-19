@@ -11,14 +11,15 @@ export const dynamic = "auto",
   preferredRegion = "auto";
 
 async function getNotes() {
-  const db = new PocketBase("http://127.0.0.1:8090");
+  const db = new PocketBase("https://db-notes.fly.dev");
   const data = await db.collection("notes").getFullList();
 
   // const res = await fetch(
-  //   "http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30",
+  //   "https://db-notes.fly.dev/api/collections/notes/records?page=1&perPage=30",
   //   { cache: "no-store" }
   // );
   // const data = await res.json();
+  // console.log(data);
 
   return data as unknown as Note[];
 }

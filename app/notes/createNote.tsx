@@ -9,7 +9,7 @@ export default function CreateNote() {
   const router = useRouter();
 
   const create = async () => {
-    await fetch("http://127.0.0.1:8090/api/collections/notes/records", {
+    await fetch("https://db-notes.fly.dev/api/collections/notes/records", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,9 @@ export default function CreateNote() {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button type="submit">Create note</button>
+      <button type="submit" className="bg-yellow-400">
+        Create note
+      </button>
     </form>
   );
 }
