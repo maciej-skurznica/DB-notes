@@ -8,7 +8,9 @@ export default function CreateNote() {
   const [content, setContent] = useState("");
   const router = useRouter();
 
-  const create = async () => {
+  const create = async (e: any) => {
+    e.preventDefault();
+
     await fetch("https://db-notes.fly.dev/api/collections/notes/records", {
       method: "POST",
       headers: {
