@@ -1,12 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CreateNote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const router = useRouter();
 
   const create = async (e: any) => {
     e.preventDefault();
@@ -21,8 +19,6 @@ export default function CreateNote() {
 
     setTitle("");
     setContent("");
-
-    router.refresh();
   };
 
   return (

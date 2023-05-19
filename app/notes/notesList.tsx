@@ -25,7 +25,7 @@ export default function NotesList() {
 }
 
 function Note({ note }: { note: Note }) {
-  const { id, title, content, created } = note || {};
+  const { id, title, content, created } = note;
 
   return (
     <Link href={`/notes/${id}`}>
