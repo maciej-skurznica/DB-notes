@@ -5,7 +5,7 @@ import NotesList from "./notesList";
 export default async function NotesPage() {
   return (
     <div>
-      <h1>Notes</h1>
+      <h1>all the Notes</h1>
       <NotesList />
       <CreateNote />
       <Link href="/">Home</Link>
