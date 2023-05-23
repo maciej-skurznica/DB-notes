@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Note } from "../../../components/notesList/notesList.interfaces";
+import { Note } from "@/components/notesList/notesList.interfaces";
 
 async function getNote(noteId: string) {
   // can be fetched here like this because this is a dynamic route and it is not cached
