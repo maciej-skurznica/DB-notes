@@ -1,6 +1,6 @@
 import Link from "next/link";
-import CreateNote from "./createNote";
-import NotesList from "./notesList";
+import CreateNote from "../../components/createNote";
+import NotesList from "../../components/notesList";
 
 export default async function NotesPage() {
   return (

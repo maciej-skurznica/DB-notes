@@ -3,7 +3,7 @@
 import Link from "next/link";
 import PocketBase from "pocketbase";
 import { useEffect, useState } from "react";
-import { Note } from "./notes.interfaces";
+import { Note } from "./notesList.interfaces";
 
 export default function NotesList() {
   const [notes, setNotes] = useState<Note[]>([]);
