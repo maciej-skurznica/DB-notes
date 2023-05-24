@@ -3,11 +3,13 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Icon } from "@iconify/react";
-import { Fragment } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Fragment, useEffect, useState } from "react";
 
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Notes", href: "notes", current: false }
+const initialNavigation = [
+  { name: "Home", href: "/", current: false },
+  { name: "Notes", href: "/notes", current: false }
 ];
 
 function classNames(...classes: string[]) {
@@ -15,6 +17,20 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  const [navigation, setNavigation] = useState(initialNavigation);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setNavigation((prev) => {
+      return prev.map((item) => {
+        return {
+          ...item,
+          current: item.href === pathname
+        };
+      });
+    });
+  }, [pathname]);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -36,7 +52,7 @@ export default function Navbar() {
                 <div className="hidden sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -48,7 +64,7 @@ export default function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -124,7 +140,7 @@ export default function Navbar() {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
+                  as={Link}
                   href={item.href}
                   className={classNames(
                     item.current
