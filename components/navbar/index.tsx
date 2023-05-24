@@ -76,7 +76,12 @@ export default function Navbar() {
                     <Menu.Button className="flex justify-center items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 h-9 w-9 bg-gray-900">
                       <span className="sr-only">Open user menu</span>
                       {/* <Image /> */}
-                      <Icon icon="solar:user-broken" width="26" height="26" />
+                      <Icon
+                        icon="solar:user-broken"
+                        width="26"
+                        height="26"
+                        color="white"
+                      />
                     </Menu.Button>
                   </div>
                   <Transition
