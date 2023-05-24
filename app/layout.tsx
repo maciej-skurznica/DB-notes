@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} grid grid-rows-[max-content_1fr_max-content] min-h-screen`}
+      >
         <Navbar />
         {children}
         <Footer />
